@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Router Simulation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="router-container">
+  <div id="r1" class="router">R1</div>
+  <div id="r2" class="router">R2</div>
+  <div id="r3" class="router">R3</div>
+  <div id="r4" class="router">R4</div>
+</div>
+
+<button onclick="connectRouters('r1','r2')">Connect R1 to R2</button>
+<button onclick="connectRouters('r2','r3')">Connect R2 to R3</button>
+<button onclick="connectRouters('r3','r1')">Connect R3 to R1</button>
+<button onclick="connectRouters('r4','r2')">Connect R4 to R2</button>
+<button onclick="connectRouters('r4','r3')">Connect R4 to R3</button>
+
+<button onclick="disconnectRouters('r1','r2')">Disconnect R1 from R2</button>
+<button onclick="disconnectRouters('r2','r3')">Disconnect R2 from R3</button>
+<button onclick="disconnectRouters('r3','r1')">Disconnect R3 from R1</button>
+<button onclick="disconnectRouters('r4','r2')">Disconnect R4 from R2</button>
+<button onclick="disconnectRouters('r4','r3')">Disconnect R4 from R3</button>
+
+<div id="alert-container"></div>
+
+<h2>Routing Table</h2>
+<table id="routing-table">
+  <tr>
+    <th>Router</th>
+    <th>Connected To</th>
+    <th>Netmask</th>
+  </tr>
+  <tr>
+    <td id="r1-name">R1</td>
+    <td id="r1-connected"></td>
+    <td id="r1-netmask">0.0.0.0</td>
+  </tr>
+  <tr>
+    <td id="r2-name">R2</td>
+    <td id="r2-connected"></td>
+    <td id="r2-netmask">0.0.0.0</td>
+  </tr>
+  <tr>
+    <td id="r3-name">R3</td>
+    <td id="r3-connected"></td>
+    <td id="r3-netmask">0.0.0.0</td>
+  </tr>
+  <tr>
+    <td id="r4-name">R4</td>
+    <td id="r4-connected"></td>
+    <td id="r4-netmask">0.0.0.0</td>
+  </tr>
+</table>
+    <script src="script.js"></script>
+</body>
+</html>

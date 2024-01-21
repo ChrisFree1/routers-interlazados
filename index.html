@@ -1,0 +1,6 @@
+<html> <head> <style> table, th, td { border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: center; } </style> </head> <body> <h2>Routing Table</h2> <table> <tr> <th>Destination Network</th> <th>Net Mask</th> <th>Gateway</th> <th>Proyecto</th> <th>Ri</th> <th>R3</th> <th>R4</th> </tr> <tr> <td>192.168.0.0</td> <td>255.255.255.0</td> <td>192.168.0.1</td> <td>31</td> <td>0</td> <td>1</td> <td>0</td> </tr> </table> <script> // Javascript code to update the routing table var routingTable = { "192.168.0.0": { "netmask": "255.255.255.0", "gateway": "192.168.0.1", "interfaces": { "Proyecto": 31, "Ri": 0, "R3": 1, "R4": 0 } } }
+function updateRoutingTable(network, data) { var table = document.getElementsByTagName("table")[0]; for (var i = 0; i < table.rows.length; i++) { var row = table.rows[i]; if (row.cells[0].innerText == network) { for (var j = 0; j < row.cells.length; j++) { row.cells[j].innerText = data[j]; } break; } } }
+
+updateRoutingTable("192.168.0.0", [ "192.168.0.0", "255.255.255.0", "192.168.0.1", "31", "0", "1", "0" ]); </script>
+
+</body> </html>
