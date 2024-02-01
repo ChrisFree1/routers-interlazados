@@ -12,6 +12,7 @@ body {
 }
 
 .router {
+  position: relative; /* Cambiar a posición relativa */
   background-color: #eee;
   border-radius: 5px;
   box-shadow: 1px 1px 2px #ccc;
@@ -19,7 +20,15 @@ body {
   margin-bottom: 10px;
   padding: 10px;
   text-align: center;
+  overflow: hidden; /* Evitar que el contenido se desborde */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
+
+/* Resto del CSS ... */
+
 
 .router h2 {
   margin-top: 0;
@@ -54,4 +63,20 @@ body {
 #routing-table th {
   background-color: #007bff;
   color: #fff;
+}
+
+.status-indicator {
+  width: 10px;
+  height: 10px;
+  background-color: #28a745; /* Color verde para indicar conexión */
+  border-radius: 50%;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: block; /* Inicialmente visible */
+}
+
+.connected .status-indicator {
+  background-color: #28a745; /* Color verde para indicar conexión */
+  display: block;
 }
