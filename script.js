@@ -17,25 +17,27 @@ function updateRoutingTable() {
     const routerId = router.dataset.routerId;
     const isConnected = routerMap.has(routerId);
 
-    const row = document.createElement('tr');
-    const routerCell = document.createElement('td');
-    const connectedRouterCell = document.createElement('td');
+    if (isConnected) {
+      const row = document.createElement('tr');
+      const routerCell = document.createElement('td');
+      const connectedRouterCell = document.createElement('td');
+      const disconnectBtnCell = document.createElement('td');
 
-    routerCell.textContent = routerId;
-    connectedRouterCell.textContent = routerMap.get(routerId) || ''; // Evitar null o undefined
+      routerCell.textContent = routerId;
+      connectedRouterCell.textContent = routerMap.get(routerId) || '';
 
-    row.appendChild(routerCell);
-    row.appendChild(connectedRouterCell);
+      const disconnectBtn = document.createElement('button');
+      disconnectBtn.textContent = 'Desconectar';
+      disconnectBtn.className = 'disconnect-btn join-btn';
+      disconnectBtn.addEventListener('click', () => disconnectRouters(routerId));
+      disconnectBtnCell.appendChild(disconnectBtn);
 
-    const disconnectBtnCell = document.createElement('td');
-    const disconnectBtn = document.createElement('button');
-    disconnectBtn.textContent = 'Desconectar';
-    disconnectBtn.className = 'disconnect-btn join-btn';
-    disconnectBtn.addEventListener('click', () => disconnectRouters(routerId));
-    disconnectBtnCell.appendChild(disconnectBtn);
-    row.appendChild(disconnectBtnCell);
+      row.appendChild(routerCell);
+      row.appendChild(connectedRouterCell);
+      row.appendChild(disconnectBtnCell);
 
-    routingTableBody.appendChild(row);
+      routingTableBody.appendChild(row);
+    }
 
     const statusIndicator = router.querySelector('.status-indicator');
     if (statusIndicator) {
@@ -43,6 +45,9 @@ function updateRoutingTable() {
     }
   });
 }
+
+// Resto del código (ocultar el botón de desconectar, manejar clic en el botón "Join")
+
 
 // Ocultar el botón de desconectar y el indicador de estado de routers no conectados
 routers.forEach(router => {
