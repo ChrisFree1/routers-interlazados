@@ -5,30 +5,23 @@ body {
 }
 
 #router-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  position: relative;
   margin-bottom: 20px;
 }
 
 .router {
-  position: relative; /* Cambiar a posición relativa */
+  position: absolute;
   background-color: #eee;
   border-radius: 5px;
   box-shadow: 1px 1px 2px #ccc;
-  flex-basis: calc(25% - 10px);
-  margin-bottom: 10px;
   padding: 10px;
   text-align: center;
-  overflow: hidden; /* Evitar que el contenido se desborde */
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-
-/* Resto del CSS ... */
-
 
 .router h2 {
   margin-top: 0;
@@ -68,15 +61,36 @@ body {
 .status-indicator {
   width: 10px;
   height: 10px;
-  background-color: #28a745; /* Color verde para indicar conexión */
+  background-color: #28a745;
   border-radius: 50%;
   position: absolute;
   top: 5px;
   right: 5px;
-  display: block; /* Inicialmente visible */
+  display: block;
 }
 
 .connected .status-indicator {
-  background-color: #28a745; /* Color verde para indicar conexión */
+  background-color: #28a745;
   display: block;
+}
+
+/* Posicionamiento de routers con más espacio */
+.router[data-router-id="R1"] {
+  top: 20px;
+  left: 20px;
+}
+
+.router[data-router-id="R2"] {
+  top: 20px;
+  right: 20px;
+}
+
+.router[data-router-id="R3"] {
+  bottom: 20px;
+  left: 20px;
+}
+
+.router[data-router-id="R4"] {
+  bottom: 20px;
+  right: 20px;
 }
